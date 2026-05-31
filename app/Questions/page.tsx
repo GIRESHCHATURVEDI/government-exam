@@ -44,7 +44,7 @@ export default function FinalUniversityWebsite() {
     block: "start",
   });
 };
-
+const topicSectionRef = useRef<HTMLDivElement | null>(null);
 const scrollToVideo = () => {
   videoSectionRef.current?.scrollIntoView({
     behavior: "smooth",
@@ -867,14 +867,14 @@ const videoSectionRef = useRef<HTMLDivElement | null>(null);
 
          <button
   onClick={() => {
-    loadSection("english");
+   loadSection("english");
 
-    document
-      .querySelector(".mainContent")
-      ?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+setTimeout(() => {
+  topicSectionRef.current?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+}, 50);
   }}
 >
   <BookOpen size={18} />
@@ -882,14 +882,15 @@ const videoSectionRef = useRef<HTMLDivElement | null>(null);
 </button>
     <button
   onClick={() => {
-    loadSection("gk");
 
-    document
-      .querySelector(".mainContent")
-      ?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+   loadSection("gk");
+
+setTimeout(() => {
+  topicSectionRef.current?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+}, 50);
   }}
 >
             <Brain size={18} />
@@ -898,14 +899,14 @@ const videoSectionRef = useRef<HTMLDivElement | null>(null);
 
           <button
   onClick={() => {
-    loadSection("quantitative");
+loadSection("quantitative");
 
-    document
-      .querySelector(".mainContent")
-      ?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+setTimeout(() => {
+  topicSectionRef.current?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+}, 50);
   }}
 >
             <Calculator size={18} />
@@ -915,14 +916,14 @@ const videoSectionRef = useRef<HTMLDivElement | null>(null);
       
           <button
   onClick={() => {
-    loadSection("reasoning");
+loadSection("reasoning");
 
-    document
-      .querySelector(".mainContent")
-      ?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+setTimeout(() => {
+  topicSectionRef.current?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+}, 50);
   }}
 >
             <Brain size={18} />
@@ -931,14 +932,14 @@ const videoSectionRef = useRef<HTMLDivElement | null>(null);
 
               <button
   onClick={() => {
-    loadSection("computer");
+loadSection("computer");
 
-    document
-      .querySelector(".mainContent")
-      ?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+setTimeout(() => {
+  topicSectionRef.current?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+}, 50);
   }}
 >
             <Monitor size={18} />
@@ -948,13 +949,12 @@ const videoSectionRef = useRef<HTMLDivElement | null>(null);
                      <button
   onClick={() => {
     loadSection("CurrentAffairs");
-
-    document
-      .querySelector(".mainContent")
-      ?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+setTimeout(() => {
+  topicSectionRef.current?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+}, 50);
   }}
 >
             <Globe size={18} />
@@ -962,7 +962,7 @@ const videoSectionRef = useRef<HTMLDivElement | null>(null);
           </button>
         </div>
 
-        <div className="mainContent">
+        <div className="mainContent" ref={topicSectionRef}>
           <div className="sectionHeader">
             <div>
               <span className="smallHeading">
