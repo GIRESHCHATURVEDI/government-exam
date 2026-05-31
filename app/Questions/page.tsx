@@ -869,6 +869,12 @@ const videoSectionRef = useRef<HTMLDivElement | null>(null);
   onClick={() => {
    loadSection("english");
 
+setTimeout(() => {
+  topicSectionRef.current?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+}, 50);
   }}
 >
   <BookOpen size={18} />
