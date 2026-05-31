@@ -390,7 +390,7 @@ const videoSectionRef = useRef<HTMLDivElement | null>(null);
 
    router.push(
     `/Questions?section=${section}`, {
-      scroll: true,
+      scroll: false,
     });
   };
 
@@ -869,12 +869,6 @@ const videoSectionRef = useRef<HTMLDivElement | null>(null);
   onClick={() => {
    loadSection("english");
 
-setTimeout(() => {
-  topicSectionRef.current?.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
-}, 50);
   }}
 >
   <BookOpen size={18} />
