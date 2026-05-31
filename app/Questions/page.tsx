@@ -390,7 +390,7 @@ const videoSectionRef = useRef<HTMLDivElement | null>(null);
 
    router.push(
     `/Questions?section=${section}`, {
-      scroll: false,
+      scroll: true,
     });
   };
 
