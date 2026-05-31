@@ -388,10 +388,10 @@ const videoSectionRef = useRef<HTMLDivElement | null>(null);
 
     setTopics(syllabus[section]);
 
-   router.push(
-    `/Questions?section=${section}`, {
-      scroll: false,
-    });
+  //  router.push(
+  //   `/Questions?section=${section}`, {
+  //     scroll: false,
+  //   });
   };
 
   const showDetail = (topic: string) => {
