@@ -199,16 +199,23 @@ const auNews = [
     <button
       onClick={() => {
         setMobileOpen(false);
+        document.getElementById("postgraduate")?.scrollIntoView({
+          behavior: "smooth",
+        });
+      }}
+    >
+     Programmes
+    </button>
+
+      <button
+      onClick={() => {
+        setMobileOpen(false);
         document.getElementById("rankings")?.scrollIntoView({
           behavior: "smooth",
         });
       }}
     >
       Current Affairs
-    </button>
-
-    <button onClick={() => setMobileOpen(false)}>
-      Research
     </button>
 
     <button onClick={() => setMobileOpen(false)}>
@@ -784,23 +791,56 @@ html {
 }
 
 @media (max-width: 1200px) {
-  .mobileDropdown {
+ .mobileDropdown {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 12px;
 
   position: fixed;
   top: 72px;
   left: 0;
   width: 100%;
 
-  background: white;
-  padding: 20px 24px;
+  padding: 20px;
+
+  background: linear-gradient(
+    135deg,
+    #061a56,
+    #65255f
+  );
 
   z-index: 9999;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
 }
 
+.mobileDropdown button {
+  width: 100%;
+
+  border: none;
+
+  background: rgba(255,255,255,0.12);
+
+  color: white;
+
+  padding: 16px;
+
+  border-radius: 12px;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  backdrop-filter: blur(10px);
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.mobileDropdown button:hover {
+  background: rgba(255,255,255,0.22);
+  transform: translateX(4px);
+}
 .mobileDropdown a {
   text-decoration: none;
   color: #65255f;
@@ -815,6 +855,7 @@ html {
   cursor: pointer;
   z-index: 10000;
 }
+  
 
 @media (max-width: 1200px) {
   .mobileMenu {
