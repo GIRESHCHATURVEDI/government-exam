@@ -257,35 +257,7 @@ const auNews = [
    {/* FEATURE CARDS */}
 <section id="postgraduate" className="cardsSection">
   <div className="cardsGrid threeCards">
-        {/* UPSC */}
-    <div className="infoCard">
-      <div className="cardTop">
-        <h2>UPSC Programmes</h2>
 
-        <div className="cardCircle">
-          <ArrowRight size={22} />
-        </div>
-      </div>
-
-      <div className="cardImageWrap">
-  <Image
-    src="/upsc_.jpg"
-    alt="UPSC"
-    fill
-    className="cardImage"
-  />
-</div>
-
-      <p>
-        Build your UPSC preparation journey with expert mentorship,
-        current affairs, test series, and complete study material.
-      </p>
-
-      <a href="#postgraduate" className="readMore">
-        Read more
-        <ArrowRight size={16} />
-      </a>
-    </div>
         {/* SSC */}
     <div className="infoCard">
       <div className="cardTop">
@@ -319,6 +291,36 @@ const auNews = [
         <ArrowRight size={16} />
       </a>
     </div>
+        {/* UPSC */}
+    <div className="infoCard">
+      <div className="cardTop">
+        <h2>UPSC Programmes</h2>
+
+        <div className="cardCircle">
+          <ArrowRight size={22} />
+        </div>
+      </div>
+
+      <div className="cardImageWrap">
+  <Image
+    src="/upsc_.jpg"
+    alt="UPSC"
+    fill
+    className="cardImage"
+  />
+</div>
+
+      <p>
+        Build your UPSC preparation journey with expert mentorship,
+        current affairs, test series, and complete study material.
+      </p>
+
+      <a href="#postgraduate" className="readMore">
+        Read more
+        <ArrowRight size={16} />
+      </a>
+    </div>
+    
 
     {/* UPPSC */}
     <div className="infoCard">
