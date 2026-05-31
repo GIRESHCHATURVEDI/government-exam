@@ -96,14 +96,6 @@ const auNews = [
           <div className="logo">GIRESH ACADEMY YOUR FUTURE</div>
 
        <nav className="menu">
-        {mobileOpen && (
-  <div className="mobileDropdown">
-    <a href="#postgraduate">Current Affairs</a>
-    <a href="#postgraduate">Research</a>
-    <a href="#postgraduate">Collaboration</a>
-    <a href="#">About GA</a>
-  </div>
-)}
   <div className="menuItem">
     <button
       className="menuButton"
@@ -202,6 +194,32 @@ const auNews = [
   <a>About GA</a> */}
 </nav>
 
+{mobileOpen && (
+  <div className="mobileDropdown">
+    <button
+      onClick={() => {
+        setMobileOpen(false);
+        document.getElementById("rankings")?.scrollIntoView({
+          behavior: "smooth",
+        });
+      }}
+    >
+      Current Affairs
+    </button>
+
+    <button onClick={() => setMobileOpen(false)}>
+      Research
+    </button>
+
+    <button onClick={() => setMobileOpen(false)}>
+      Collaboration
+    </button>
+
+    <button onClick={() => setMobileOpen(false)}>
+      About GA
+    </button>
+  </div>
+)}
           <button
   className="mobileMenu"
   onClick={() => setMobileOpen(!mobileOpen)}
@@ -767,19 +785,40 @@ html {
 
 @media (max-width: 1200px) {
   .mobileDropdown {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    background: white;
-    padding: 20px;
-    border-bottom: 1px solid #ddd;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 
-  .mobileDropdown a {
-    text-decoration: none;
-    color: #65255f;
-    font-size: 18px;
-    font-weight: 600;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  width: 100%;
+
+  background: white;
+  padding: 20px 24px;
+
+  z-index: 9999;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.mobileDropdown a {
+  text-decoration: none;
+  color: #65255f;
+  font-size: 18px;
+  font-weight: 600;
+}
+}
+.mobileMenu {
+  display: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+@media (max-width: 1200px) {
+  .mobileMenu {
+    display: block;
   }
 }
         .menuItem {
