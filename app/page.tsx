@@ -64,13 +64,13 @@ const router = useRouter();
 
 
 const auNews = [
-  {
-    image: "/news1.jpg",
-    title:
-      "India Launches New AI Mission to Boost Innovation and Startups",
-    desc:
-      "The Government of India announced major investments in artificial intelligence, focusing on startups, research, and digital infrastructure to strengthen the country’s tech ecosystem.",
-  },
+{
+  image: "/asean.jpg",
+  title:
+    "ASEAN Expands Cross-Border Education and Research Partnerships",
+  desc:
+    "Universities and institutions across ASEAN countries are increasing collaboration in higher education, research, and student mobility programs to foster regional development and academic excellence.",
+},
   {
     image: "/news2.jpg",
     title:
