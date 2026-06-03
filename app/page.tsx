@@ -29,6 +29,7 @@ useEffect(() => {
 }, [pathname]);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [showPrograms, setShowPrograms] = useState(false);
+  const [loading, setLoading] = useState(false);
 const router = useRouter();
   const news = [
   {
@@ -88,6 +89,12 @@ const auNews = [
 
   return (
     <div className="page">
+      {loading && (
+  <div className="pageLoader">
+    <div className="spinner"></div>
+    <p>Loading...</p>
+  </div>
+)}
       {/* HEADER */}
       <header className="header">
         <div className="topBar" />
@@ -290,7 +297,10 @@ const auNews = [
 
          <div
   className="cardCircle"
-  onClick={() => router.push("/Questions")}
+ onClick={() => {
+  setLoading(true);
+  router.push("/Questions");
+}}
   style={{ cursor: "pointer" }}
 >
   <ArrowRight size={22} />
@@ -311,7 +321,13 @@ const auNews = [
         live classes, practice tests, and revision sessions.
       </p>
 
-        <a  className="readMore" onClick={() => router.push("/Questions")}>
+       <a
+  className="readMore"
+  onClick={() => {
+    setLoading(true);
+    router.push("/Questions");
+  }}
+>
         Read more
         <ArrowRight size={16} />
       </a>
@@ -855,7 +871,43 @@ html {
   cursor: pointer;
   z-index: 10000;
 }
-  
+  .pageLoader {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.95);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999999;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+
+  border: 5px solid #e5e5e5;
+  border-top: 5px solid #65255f;
+
+  border-radius: 50%;
+
+  animation: spin 0.8s linear infinite;
+}
+
+.pageLoader p {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #65255f;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 @media (max-width: 1200px) {
   .mobileMenu {
