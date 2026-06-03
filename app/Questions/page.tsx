@@ -382,7 +382,7 @@ const videoSectionRef = useRef<HTMLDivElement | null>(null);
     Chemistry: "chemistry",
     Biology: "biology",
   };
-
+const [loading, setLoading] = useState(false);
   const loadSection = (section: string) => {
     setSectionTitle(section.toUpperCase());
 
@@ -396,6 +396,7 @@ const videoSectionRef = useRef<HTMLDivElement | null>(null);
 
   const showDetail = (topic: string) => {
     if (pageRoutes[topic]) {
+      setLoading(true);
        router.push(
     `/number-system?topic=${encodeURIComponent(topic)}`
   );
@@ -631,6 +632,12 @@ const videoSectionRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <div className="page">
+      {loading && (
+  <div className="pageLoader">
+    <div className="spinner"></div>
+    <p>Loading...</p>
+  </div>
+)}
       <header className="header">
         <div className="topBar"></div>
 
@@ -1392,6 +1399,44 @@ setTimeout(() => {
   .chartText h2 {
     font-size: 2rem;
     word-break: break-word;
+  }
+}
+  .pageLoader {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(255,255,255,0.95);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 999999;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+
+  border: 6px solid #ddd;
+  border-top: 6px solid #65255f;
+
+  border-radius: 50%;
+
+  animation: spin 0.8s linear infinite;
+}
+
+.pageLoader p {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #65255f;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }
 
