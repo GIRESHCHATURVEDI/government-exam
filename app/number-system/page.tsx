@@ -394,6 +394,8 @@ const prevSlide = () => {
   );
 };
 
+  const [loading, setLoading] = useState(false);
+
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -823,6 +825,13 @@ const prevSlide = () => {
 
   return (
     <>
+        {loading && (
+      <div className="pageLoader">
+        <div className="spinner"></div>
+        <p>Loading...</p>
+      </div>
+    )}
+
       <style jsx global>{`
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
@@ -1443,6 +1452,43 @@ const prevSlide = () => {
             width: 140px;
           }
         }
+          .pageLoader {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.95);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999999;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+
+  border: 5px solid #e5e5e5;
+  border-top: 5px solid #65255f;
+
+  border-radius: 50%;
+
+  animation: spin 0.8s linear infinite;
+}
+
+.pageLoader p {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #65255f;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 .questionsSection {
   margin: 120px 0;
@@ -1674,7 +1720,11 @@ const prevSlide = () => {
         <div className="navbar">
           <div className="logo">Number System</div>
 
-          <Link href="/Questions" className="navBtn">
+          <Link href="/Questions" className="navBtn"
+            onClick={() => {
+              setLoading(true);
+            }}
+          >
             Back Home
           </Link>
         </div>

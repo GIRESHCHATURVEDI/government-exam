@@ -723,7 +723,10 @@ const [loading, setLoading] = useState(false);
             <Globe size={20} />
 <button
   className="applyBtn"
-  onClick={() => router.push("/")}
+  onClick={() => {
+    setLoading(true);
+    router.push("/");
+  }}
 >
   Home Page
 </button>
